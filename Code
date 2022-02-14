@@ -1,0 +1,50 @@
+#include <iostream>
+#include <cmath>
+//
+
+//
+using namespace std;
+
+void crescente(int l[],int n){
+    int ord = 0;
+    while(ord == 0){
+        int k = l[0];
+        ord = 1;
+        for(int i = 1;i < n;i++){
+            if(l[i] < k){
+                k = l[i];
+                ord = 0;
+                l[i] = l[i-1];
+                l[i-1] = k;
+
+            }
+            else{
+                k = l[i];
+            }
+        }
+    }
+
+}
+
+
+
+int main(){
+    int n;
+    scanf("%d",&n);
+    int *l = new int[n];
+    for(int i = 0;i < n;i++){
+        scanf("%d",&l[i]);
+    }
+    crescente(l,n);
+    for(int i = 0;i < n;i++){
+        printf("%d ",l[i]);
+    }
+
+    delete[] l;
+    l = NULL;
+
+
+return 0;
+
+}
+
